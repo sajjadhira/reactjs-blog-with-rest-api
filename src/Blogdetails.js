@@ -14,7 +14,7 @@ const Blogdetails = () => {
 
 
     return ( 
-
+        
         <div className="content">
             <div className="blog-details">
                 

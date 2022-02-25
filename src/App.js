@@ -5,7 +5,7 @@ import Create from './Create';
 import Blogdetails from './Blogdetails';
 import NotFound from './NotFound';
 
-
+// the base app
 function App() {
 
   return (

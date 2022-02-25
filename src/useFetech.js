@@ -7,7 +7,7 @@ let useFetech = (url) => {
     let [data,setData] = useState(null);
     let [error,setError] = useState(null);
     let [preloader,setPreloader] = useState(true);
-
+    // creating custom hook
     useEffect(()=> {
         // let res = null;
         // console.log("Working");

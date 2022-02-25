@@ -21,7 +21,7 @@ const Content = () => {
           seTitle("Latest Blogs for You");
         
     }
-
+    // use effect for set title
     useEffect(() => {
         document.title = "The React Blog";  
       }, []);

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 const NotFound = () => {
-
+// use effects for set title
     useEffect(() => {
         document.title = "404 Not Found!";  
       }, []);

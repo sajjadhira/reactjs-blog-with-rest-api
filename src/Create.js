@@ -13,7 +13,7 @@ const Create = () => {
         e.preventDefault();
 
         setPreloader(true);
-
+//
         let blog = {title, body, author};
         let res = null;
 
