@@ -4,9 +4,16 @@ const Create = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('');
+    const [attachment, setAttachment] = useState('');
+    const [video, setVideo] = useState('');
     const [preloader,setPreloader] = useState(false);
     const [error,setError] = useState(false);
     const [success,setSuccess] = useState(false);
+
+
+    useEffect(() => {
+        document.title = "Add new Blog";  
+      }, []);
 
     const handleSubmit = (e) => {
         
@@ -47,9 +54,31 @@ const Create = () => {
 
     }
 
-    useEffect(() => {
-        document.title = "Add new Blog";  
-      }, []);
+    const handleFile = (e) =>{
+            if(e.target.files && e.target.files[0]){
+                const file = URL.createObjectURL(e.target.files[0]);
+                const type = e.target.files[0].type;
+
+
+                console.log(file);
+                
+                console.log(type);
+                if(type == 'image/jpeg'){
+                    setAttachment(file);
+                    setVideo('');
+                }else if (type == 'video/mp4'){
+                    setVideo(file);
+                    setAttachment('');
+                }
+            }
+    }
+
+    const closePreview = () => {
+        setAttachment('');
+        setVideo('')
+    }
+
+
 
     return ( 
         <div className="content">
@@ -77,20 +106,48 @@ const Create = () => {
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
                     ></textarea>
+
+                    <label>Attachment:</label>
+                    <input
+                    type="file"
+                    onChange={handleFile}
+                    />
+
                     <label>Blog author:</label>
                     <select
                     value={author}
                     onChange={(e) => setAuthor(e.target.value)}
-                    >
+                    >              
                     <option value="">Select Author</option>
                     <option value="sajjad">Sajjad</option>
-                    <option value="ridi">Ridi</option>
+                    <option value="rajib">Rajib</option>
                     </select>
                     {preloader && <button disabled>Adding Blog...</button>}
                     {!preloader && <button>Add Blog</button>}
                 </form>
 
             </div>
+
+            {attachment && (
+                <div>
+                <br/>
+                <img key={attachment} src={attachment} height="300" width="500" />
+                </div>
+                )
+                }
+            {video && (
+                <div className="center">
+                <br/>
+                <video width="500" height="300" key={video} controls autoPlay>
+                <source src={video} type="video/mp4" />
+                <source src={video} type="video/ogg" />
+                Your browser does not support the video tag.
+                </video>
+                <br/>
+                <button onClick={closePreview}>Turn off Preview</button>
+                </div>
+                )
+                }
         </div>
      );
 }

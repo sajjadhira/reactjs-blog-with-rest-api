@@ -13,6 +13,27 @@ const Blogdetails = () => {
       }, [blog]);
 
 
+    const handleClick = () => {
+
+        fetch("http://localhost:9000/blogs/" + id, {
+            method: 'DELETE'
+        }).then(
+            res => {
+                // console.log(res);
+
+                setTimeout(
+                    () => {
+                        // console.log("Redirection");
+                        window.location.href = '/';
+                    },
+                    2000
+                )
+                
+            }
+        )
+    }
+
+
     return ( 
         
         <div className="content">
@@ -32,6 +53,12 @@ const Blogdetails = () => {
                     <p className="center">Author: {blog.author}</p>
                     <br/>
                     <div>{blog.body}</div>
+
+                    <div className="delete">
+
+                        <button onClick={handleClick}>Delete Blog</button>
+
+                    </div>
                 </article>)
                 }
 
