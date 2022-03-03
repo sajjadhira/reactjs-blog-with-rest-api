@@ -21,6 +21,7 @@ const Content = () => {
 
     // let {data: blogs, preloader, error} = useFetech("http://localhost:9000/blogs");
 
+
     const {preloader, data, isError, error, isFetching} = useQuery('home-blogs', () => {
         return axios.get(endpoint);
      },

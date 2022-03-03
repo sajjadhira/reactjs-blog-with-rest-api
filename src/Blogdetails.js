@@ -11,7 +11,6 @@ const Blogdetails = () => {
     const endpoint = 'http://localhost:9000/blogs/' + id;
 
 
-
     const {preloader, data:blog, isError, error, isFetching} = useQuery('blog-'+id, () => {
         return axios.get(endpoint);
     },

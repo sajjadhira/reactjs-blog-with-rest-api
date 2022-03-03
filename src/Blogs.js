@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 // import useFetech from "./useFetech";
 
+
 const Blogs = () => {
 
     const endpoint = 'http://localhost:9000/blogs';

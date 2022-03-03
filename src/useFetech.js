@@ -3,7 +3,6 @@ import {useState,useEffect} from 'react';
 let useFetech = (url) => {
     
         
-    // let data = [];
     let [data,setData] = useState(null);
     let [error,setError] = useState(null);
     let [preloader,setPreloader] = useState(true);
