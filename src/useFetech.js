@@ -13,8 +13,6 @@ let useFetech = (url) => {
         // console.log("Working");
         let abort = new AbortController();
 
-        setTimeout(
-            () => {
                 fetch(url, {signal: abort.signal }).then(
                     res => {
 
@@ -37,8 +35,7 @@ let useFetech = (url) => {
                         setData([]);
                     }
                 )
-            }, 1000
-        );
+
 
         return () => {
             // console.log("Aborted");

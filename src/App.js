@@ -5,11 +5,15 @@ import Create from './Create';
 import Blogdetails from './Blogdetails';
 import NotFound from './NotFound';
 import Blogs from './Blogs';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
+const queryClinet = new QueryClient();
 // the base app
 function App() {
 
   return (
+    <QueryClientProvider client={queryClinet}>
     <Router>
     <div className="App">
       <Navbar />
@@ -32,6 +36,8 @@ function App() {
       </Switch>
     </div>
     </Router>
+    <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+    </QueryClientProvider>
   );
 }
 
